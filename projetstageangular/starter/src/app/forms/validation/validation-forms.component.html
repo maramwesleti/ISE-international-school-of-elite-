@@ -1,0 +1,171 @@
+<form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+<section id="datepicker">
+  <div class="row text-center">
+    <div class="col-sm-12">
+      <div class="content-header">choisir la date</div>
+    </div>
+  </div>
+  <div class="row text-left" matchHeight="card">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">date debut</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            
+            
+              <div class="form-group">
+                <div class="input-group" >
+                  <input class="form-control" placeholder="yyyy-mm-dd" name="startDate" ngbDatepicker
+                    [dayTemplate]="customDay" [markDisabled]="isDisabled" #d3="ngbDatepicker"  formControlName="startDate" > <!---------------->
+                  <div class="input-group-append">
+                    <div class="input-group-text" (click)="d3.toggle()">
+                      <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+           
+
+            <ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected"
+              let-disabled="disabled">
+              <span class="custom-day" [class.weekend]="isWeekend(date)" [class.bg-primary]="selected"
+                [class.hidden]="date.month !== currentMonth" [class.text-muted]="disabled">
+                {{ date.day }}
+              </span>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">date fin </h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+           
+              <div class="form-group">
+                <div class="input-group">
+                  <input class="form-control" placeholder="yyyy-mm-dd" name="endDate" ngbDatepicker
+                    [dayTemplate]="customDay" [markDisabled]="isDisabled" #d4="ngbDatepicker" formControlName="endDate"><!----------->
+                  <div class="input-group-append">
+                    <div class="input-group-text" (click)="d4.toggle()">
+                      <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+         
+            <ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected"
+              let-disabled="disabled">
+              <span class="custom-day" [class.weekend]="isWeekend(date)" [class.bg-primary]="selected"
+                [class.hidden]="date.month !== currentMonth" [class.text-muted]="disabled">
+                {{ date.day }}
+              </span>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--------------------------------------------------------->
+<h6>choisir le formateur</h6>
+                <p>saisir le nom du formateur.</p>
+                <div class="form-group">
+                 <!-- <ng-select [items]="formateurs" bindLabel="nomComplet" placeholder="Select city" [(ngModel)]="selectedformateur"> -->
+                  <ng-select [items]="formateurs" bindLabel="nomComplet" bindValue="id" placeholder="Select formateur" formControlName="selectedFormateurId">
+                  </ng-select>
+                  <!--
+                    <p class="text-italic font-small-2 mt-1">
+                    Selected formateur : {{ selectedFormateurId| json}}
+                  </p>
+                  -->
+                </div>
+            
+
+              <!-- <button class="btn btn-primary" (click)="getEmplois(selectedFormateurId, debut, fin)">Afficher Emplois</button>--> 
+
+              <button type="submit" class="btn btn-primary">Afficher Emplois</button>
+            
+ </section>
+<!------------------------------>
+
+</form>
+<section id="simple-datatable">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <!--<div class="card-header">
+          <h4 class="card-title">Lis </h4>
+        </div>-->
+        <div class="card-content">
+          <div class="card-body">
+            <!-- Simple DataTable -->
+            <ngx-datatable [rows]="emplois" class="bootstrap" [columnMode]="'force'"
+              [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [scrollbarH]="true">
+              <!-- ID Column -->
+              <ngx-datatable-column name="date" prop="date_jour" [width]="50">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                 {{ value }}
+                </ng-template>
+              </ngx-datatable-column>
+              <!-- Nom Column -->
+             
+              <!-- Prénom Column -->
+              <ngx-datatable-column name="salle" prop="libelle">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{ value }}
+                </ng-template>
+              </ngx-datatable-column>
+              <!-- Téléphone Column -->
+            
+              
+              <ngx-datatable-column name="classe" prop="niveau">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{ value }}
+                </ng-template>
+              </ngx-datatable-column>
+
+
+              <ngx-datatable-column name="nombre d'heure" prop="nbheure">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{ value }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="cout heure" prop="coutheure">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                 {{ 20 }}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="totale" prop="totale">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                 {{ value }}
+                </ng-template>
+              </ngx-datatable-column>
+           
+           
+              <ngx-datatable-column name="presence" prop="presence">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <input type="checkbox" [checked]="row.presence" (change)="onCheckboxChange(row, $event.target.checked)">
+                </ng-template>
+              </ngx-datatable-column>
+
+
+
+          </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<button class="btn btn-primary" (click)="showTotal()">Afficher Total</button>
+<div>Total: {{ total }}</div>

@@ -1,0 +1,52 @@
+<section id="simple-datatable">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Liste des formateurs </h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <!-- Simple DataTable -->
+            <ngx-datatable [rows]="formateurs" class="bootstrap" [columnMode]="'force'"
+              [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [scrollbarH]="true">
+              <!-- ID Column -->
+              <ngx-datatable-column name="ID" prop="id" [width]="50"></ngx-datatable-column>
+              <!-- Nom Column -->
+              <ngx-datatable-column name="Nom" prop="nom">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{ value }}
+                </ng-template>
+              </ngx-datatable-column>
+              <!-- Prénom Column -->
+              <ngx-datatable-column name="Prénom" prop="prenom">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{ value }}
+                </ng-template>
+              </ngx-datatable-column>
+              <!-- Téléphone Column -->
+              <ngx-datatable-column name="Téléphone" prop="tel">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{ value }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Adresse" prop="adresse">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{ value }}
+                </ng-template>
+              </ngx-datatable-column>
+           
+
+            <ngx-datatable-column name="Action" [width]="100">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <i class="ft-edit text-warning cursor-pointer mr-2" (click)="updatef(row.id)"></i>
+                <i class="ft-trash-2 text-danger cursor-pointer" (click)="deleteFormateur(row)"></i>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

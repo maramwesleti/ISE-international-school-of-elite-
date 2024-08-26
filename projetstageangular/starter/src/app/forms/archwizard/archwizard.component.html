@@ -1,0 +1,43 @@
+<form [formGroup]="formFormateur" (ngSubmit)="submit()">
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">ajouter un formateur</h4>
+    </div>
+    <div class="card-content">
+        <div class="card-body">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    
+                    <fieldset class="form-group">
+                        <label for="basicInput">nom :</label>
+                        <input type="text" class="form-control round" formControlName="nom" id="basicInput"  placeholder="Enter your name">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="basicInput">prenom :</label>
+                        <input type="text" class="form-control round" id="basicInput" formControlName="prenom" placeholder="Enter your prename">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="basicInput">tel :</label>
+                        <input type="number" class="form-control round" id="basicInput" formControlName="tel" placeholder="Enter your name">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="basicInput">adresse :</label>
+                        <input type="text" class="form-control round" id="basicInput" formControlName="adresse" placeholder="Enter your name">
+                    </fieldset>
+                   
+                
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mr-2"  ><i class="ft-check-square mr-1"></i>Save</button>
+            <button type="reset" class="btn btn-secondary"><i class="ft-x mr-1"></i>Cancel</button>
+        
+        </div>
+   
+    </div>
+</div>
+</form>
+
+            
+       
+

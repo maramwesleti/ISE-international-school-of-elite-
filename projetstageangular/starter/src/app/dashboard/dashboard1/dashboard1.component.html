@@ -1,0 +1,120 @@
+<!--Statistics cards Starts-->
+<div class="row" (resized)="onResized($event)">
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-purple-love">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">33</h3>
+              <span>nombre des formateurs</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-activity font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class=" WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart.data" [type]="WidgetlineChart.type" [options]="WidgetlineChart.options" [responsiveOptions]="WidgetlineChart.responsiveOptions"
+					 [events]="WidgetlineChart.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-ibiza-sunset">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0"> 1500 </h3>
+              <span>Totale des salaires</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-percent font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart1.data" [type]="WidgetlineChart1.type" [options]="WidgetlineChart1.options" [responsiveOptions]="WidgetlineChart1.responsiveOptions"
+					 [events]="WidgetlineChart1.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+<!--
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-mint">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$45,668</h3>
+              <span>Total Sales</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-trending-up font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart2.data" [type]="WidgetlineChart2.type" [options]="WidgetlineChart2.options" [responsiveOptions]="WidgetlineChart2.responsiveOptions"
+					 [events]="WidgetlineChart2.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$32,454</h3>
+              <span>Total Earning</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<!--Line with Area Chart 1 Starts-->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">les salaires</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <div class="chart-info mb-3 ml-3">
+            <span class="gradient-purple-bliss d-inline-block rounded-circle mr-1" style="width:15px; height:15px;"></span>
+            <span>les salaires</span>
+           
+          
+          </div>
+          <div id="line-area" class="lineArea">
+						<x-chartist class="height-350" [data]="lineArea.data" [type]="lineArea.type" [options]="lineArea.options"
+						 [responsiveOptions]="lineArea.responsiveOptions" [events]="lineArea.events">
+						</x-chartist>
+					</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Line with Area Chart 1 Ends-->
+
